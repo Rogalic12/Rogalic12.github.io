@@ -1,147 +1,326 @@
-<!DOCTYPE html>
-<html lang="ru">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="kwantum_img/logo.png" type="image/x-icon">
-    <title>Главная</title>
-    <link rel="stylesheet" href="style/glav.css">
-    <!-- <script src="/Кванториум/script/glav.js"></script> -->
+  <title>Код будущего</title>
+  <meta charset="utf-8">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair&display=swap" rel="stylesheet">
+
+  <!--Для слайдера-->
+  <link rel="stylesheet" type="text/css" href="slick/slick.css">
+  <link rel="stylesheet" type="text/css" href="slick/slick-theme.css">
+
+  <link rel="stylesheet" href="style/style.css">
+  <script src="script/modal.js" type="text/javascript" charset="utf-8"></script>
+  <script src="script/bag.js" type="text/javascript" charset="utf-8"></script>
+
+  <style type="text/css">
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    .slider {
+        width: 100%;
+        margin: auto;
+        height: 400px;
+    }
+    .slick-slide {
+      margin: 0px;
+    }
+    .slick-slide img {
+      width: 100%;
+    }
+    .slick-prev:before,
+    .slick-next:before {
+      color: black;
+    }
+    .slick-slide {
+      transition: all ease-in-out .3s;
+      opacity: .2;
+    }    
+    .slick-active {
+      opacity: .5;
+    }
+    .slick-current {
+      opacity: 1;
+    }
+    /*Настройки*/
+    .slick-dots{
+      top:350px;
+      bottom:0px;
+    }
+    .slick-dots li button{
+      background-color: aliceblue;
+      height: 16px;
+      width: 16px;
+      margin: 5px;
+      border-radius: 8px;
+    }
+    .slick-dots li{
+     color: aliceblue;
+    }
+    .slick-dots li button::before {
+      color: aliceblue;
+    }
+
+    .slick-dots li.slick-active button:before{
+      color: white;
+    }
+
+
+    #sl1,#sl2,#sl3{
+      width:100%; height: 400px;
+      background-size: cover;
+      background-repeat: no-repeat; 
+    }
+    #sl1{
+      background-image: url(img/bg1.jpg);
+    }
+    #sl2{
+      background-image: url(img/bg2.jpg);
+    }
+    #sl3{
+      background-image: url(img/bg3.jpg);
+    }
+  </style>
+
+
 </head>
 
 <body>
-    <header class="fixed-header">
-        <img class="logo" src="kwantum_img/logo.png" />
-        <nav>
-          <ul class="menu__box">
-            <li>Главная</li>
-            <li><a class="menu__item" href="news.html">Новости</a></li>
-            <li><a class="menu__item" href="person.html">Персонал</a> </li>
-            <li><a class="menu__item" href="directions.html"> Направления</a></li>
-            <li><a class="menu__item" href="/ob_quantoriyme.html">Об кванториуме</a></li>
-            <input type="button" value="Темная тема" class="themeButton" />
-            <img src="kwantum_img/a.png" onclick="document.getElementById('id01').style.display='block'" class="a"></img>
+  <!--Шапка сайта---->
+  <section id="header">
+    <nav>
+      <div id="content-nav">
+        <a href="#catalog">Каталог товаров</a>
+        <a href="#about">О компании</a>
+        <a href="#form">Обратная связь</a>
+        <a href="#footer">Контакты</a>
+        <div id="bag" onclick="baglistshow()">
+          <img src="img/bag.svg" id="bagcount"><br>
+          <div id="count">0</div>
+        </div>
+      </div>
+    </nav>
+    <div id="nav2"></div>
+    <hr>
+    <div id="bg1"></div>
+    <header>
+      <div id="content-header">
+        <img src="img/logo.png">
+        <input type="text" id="search" placeholder="Поиск...">
+        <a href="#" id="sub">SUBSCRIBE & SAVE</a>
+      </div>
+    </header>
 
-<div id="id01" class="modal">
-  <form class="modal-content animate" action="/action_page.php">
-    <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
-      <img src="kwantum_img/a.png" alt="Avatar" class="avatar">
+    <div id="bg2"></div>
+  </section>
+  <section class="lazy slider">
+    <div id="sl1" class="slaidercontent">
+      <h1>СЛАДКИЙ БУКЕТ <br> РОЗЫ</h1><br><br>
+      <input type="button" value="Купить" id="but1">
     </div>
-
-    <div class="container">
-      <label for="uname"><b>Имя пользователья</b></label>
-      <input type="text" placeholder="Введите имя пользователя" name="uname" required>
-
-      <label for="psw"><b>Пароль</b></label>
-      <input type="password" placeholder="Введите пароль" name="psw" required>
-
-      <label for="psw"><b>Любимый цвет</b></label>
-      <input type="password" placeholder="Введите любимый цвет" name="psw" required>
-        
-      <button type="submit" onclick="alert('Диалоговое окно')">Зарегистрироваться</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Запомни меня
-      </label>
+    <div id="sl2" class="slaidercontent">
+      <h1>БЕЛЫЕ <br> РОЗЫ</h1><br><br>
+      <input type="button" value="Купить" id="but2">
     </div>
-
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Закрыть</button>
-      <span class="psw">Забыли <a href="#">пароль</a></span>
+    <div id="sl3" class="slaidercontent">
+      <h1>СЪЕДОБНЫЙ БУКЕТ<br> РОЗЫ</h1><br><br>
+      <input type="button" value="Купить" id="but3">
     </div>
-  </form>
-</div>
-          </ul>
-        </nav>
-      </header>
-      <main>
- <br>
- <br>
- <br>
- <br>
+  </section>
+  <!--Каталог---->
+  <a name="catalog"></a>
+  <section id="cat">
+    <h1>Каталог товаров</h1>
+    <div id="contentcat">
+      <!--Карточка 1-->
+      <div class="cart">
+        <img src="img/img1.jpg">
+        <div class="cattext">
+          <div class="titlecat">
+            <h3>Букет шоколадный</h3>
+            <h4>79.00-149.00</h4>
+          </div>
+          <div class="butcat" onclick="count('Букет шоколадный')"></div>
+        </div>
+      </div>
+      <!--Карточка 2-->
+      <div class="cart">
+        <img src="img/img2.jpg">
+        <div class="cattext">
+          <div class="titlecat">
+            <h3>Букет клубника</h3>
+            <h4>139.00-269.00</h4>
+          </div>
+          <div class="butcat" onclick="count('Букет клубника')"></div>
+        </div>
+      </div>
+      <!--Карточка 3-->
+      <div class="cart">
+        <img src="img/img3.jpg">
+        <div class="cattext">
+          <div class="titlecat">
+            <h3>Красные розы</h3>
+            <h4>109.00-249.00</h4>
+          </div>
+          <div class="butcat" onclick="count('Красные розы')"></div>
+        </div>
+      </div>
+      <!--Карточка 4-->
+      <div class="cart">
+        <img src="img/img4.jpg">
+        <div class="cattext">
+          <div class="titlecat">
+            <h3>Белый шоколад</h3>
+            <h4>135.00-269.00</h4>
+          </div>
+          <div class="butcat" onclick="count('Белый шоколад')"></div>
+        </div>
+      </div>
+      <!--Карточка 5-->
+      <div class="cart">
+        <img src="img/img5.jpg">
+        <div class="cattext">
+          <div class="titlecat">
+            <h3>Розовый шоколад</h3>
+            <h4>65.00-175.00</h4>
+          </div>
+          <div class="butcat" onclick="count('Розовый шоколад')"></div>
+        </div>
+      </div>
+      <!--Карточка 6-->
+      <div class="cart">
+        <img src="img/img6.jpg">
+        <div class="cattext">
+          <div class="titlecat">
+            <h3>Ассорти</h3>
+            <h4>115.00-239.00</h4>
+          </div>
+          <div class="butcat" onclick="count('Ассорти')"></div>
+        </div>
+      </div>
+      <!--Карточка 7-->
+      <div class="cart">
+        <img src="img/img7.jpg">
+        <div class="cattext">
+          <div class="titlecat">
+            <h3>Белые розы</h3>
+            <h4>89.00-345.00</h4>
+          </div>
+          <div class="butcat" onclick="count('Белые розы')"></div>
+        </div>
+      </div>
+      <!--Карточка 8-->
+      <div class="cart">
+        <img src="img/img8.jpg">
+        <div class="cattext">
+          <div class="titlecat">
+            <h3>Сладкий букет</h3>
+            <h4>95.00-229.00</h4>
+          </div>
+          <div class="butcat" onclick="count('Сладкий букет')"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--Вызов формы---->
+  <a name="form"></a>
+  <section id="form">
+    <div id="contentform">
+      <h1>Заказать букет</h1>
+      <input type="button" value="Заявка" id="but2" onclick="showmod()">
+    </div>
+  </section>
+  <!--О компании---->
+  <a name="about"></a>
+  <section id="about">
+    <div id="contentabout">
+      <div id="aboutfoto">
+        <img src="img/foto.png" alt="О компании">
+      </div>
+      <div id="abouttext">
+        <h1>О нас</h1>
+        <p>Заказы принимаем online. Только самые свежие букеты.· Розы. Тюльпаны. Ирисы. Гвоздики. Лилии. Хризантемы.
+          Гортензии. Альстромерии. Каллы. Съедобные букеты!</p>
+      </div>
 
-
-<div class="mySlides fade">
-  <img src="kwantum_img/carousel/1.jpg" style="max-width:100%">
-</div>
-<div class="mySlides fade">
-  <img src="kwantum_img/carousel/2.jpg" style="max-width:100%">
-</div>
-<div class="mySlides fade">
-  <img src="kwantum_img/carousel/3.jpg" style="max-width:100%">
-</div>
-<div class="mySlides fade">
-  <img src="kwantum_img/carousel/4.jpg" style="max-width:100%">
-</div>
-<div class="mySlides fade">
-  <img src="kwantum_img/carousel/5.jpg" style="max-width:100%">
-</div>
-<div class="mySlides fade">
-  <img src="kwantum_img/carousel/6.jpg" style="max-width:100%">
-</div>
-<div class="mySlides fade">
-  <img src="kwantum_img/carousel/7.jpg" style="max-width:100%">
-</div>
-<div class="mySlides fade">
-  <img src="kwantum_img/carousel/8.jpg" style="max-width:100%">
-</div>
-<div class="mySlides fade">
-  <img src="kwantum_img/carousel/9.jpg" style="max-width:100%">
-</div>
-      </main>
-      <footer> 
+    </div>
+  </section>
+  <!--Подвал---->
+  <a name="footer"></a>
+  <footer>
+    <div id="contentfooter">
+      <div class="col">
         <ul>
-            <a href="me.html"> <li class="footerA1">О мне</li></a>
-            <a href="no.html"> <li class="footerA"> Lorem.</li></a>
-            <a href="no.html"> <li class="footerA"> Lorem.</li></a>
-            <a href="no.html"> <li class="footerA"> Lorem.</li></a>
-         </ul>
-   <p>Казанцев Илья г. Бийск. Не какие права не защищены</p>
-</footer>
-<script>
+          <li><img src="img/logolit.png"></li>
+          <li><img src="img/email.svg" id="emailimg">info@stroykastore.ru</li>
+          <li><img src="img/geo.svg" id="geoimg">Москва, ул. Камушкина 10</li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul>
+          <li>Личный кабинет</li>
+          <li>Заказы</li>
+          <li>Избранное</li>
+          <li>Корзина</li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul>
+          <li>Каталог</li>
+          <li>Акции</li>
+          <li>Бренды</li>
+          <li>Контакты</li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul>
+          <li>Стать продацом</li>
+          <li>Доставка</li>
+          <li>Возврат</li>
+          <li>Документация</li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+  </footer>
 
-var slideIndex = 0;
-setTimeout(showSlides);
+   <!--модальное окно-->
+   <div id="modalback">
+    <div id="modal">
+        <img src="img/close.png" width="30px" onclick="hide()">                
+        <form>
+            <label for="email">E-mail&nbsp;&nbsp;*</label>
+            <input type="text" class="block" id="email">
+            <label for="phone">Телефон&nbsp;&nbsp;*</label>
+            <input type="text" class="block" id="phone">
+            <input type="radio" name="mem">&nbsp;&nbsp;Запомнить
+            <input type="button" class="block" id="butmod" value="Отправить">
+        </form>
+    </div> 
+</div>
 
-function showSlides() {
-    var i;
-    var slides = document.querySelectorAll(".mySlides")
 
-    console.log(slides);
-    
-     for (i = 0; i < slides.length; i++) {
-       slides[i].style.display = "none";  
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}    
 
-    slides[slideIndex-1].style.display ="block"
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+  <script src="./slick/slick.js" type="text/javascript" charset="utf-8"></script>
+   <script type="text/javascript">
+       $(document).on('ready', function() {
+           $(".lazy").slick({
+           arrows: false,
+           dots: true,
+           lazyLoad: 'ondemand', // ondemand progressive anticipated
+           infinite: true
+           });
+       });
+   </script>
 
-    setTimeout(showSlides, 10000);
-}
-// Get the modal
-var modal = document.getElementById('id01');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-var isToggle = true;
-
-var page = document.querySelector("body");
-var themeButton = document.querySelector(".themeButton");
-
-themeButton.onclick = function () {
-  isToggle
-    ? page.classList.add("darkTheme")
-    : page.classList.remove("darkTheme");
-
-  isToggle = !isToggle;
-};
-
-</script>
 </body>
+
 </html>
